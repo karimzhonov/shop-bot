@@ -18,7 +18,7 @@ WEBAPP_HOST = "0.0.0.0"
 WEBAPP_PORT = int(os.environ.get("PORT", 5000))
 
 
-@dp.message_handler(commands='start')
+@dp.message_handler(commands='start', state="*")
 async def cmd_start(message: types.Message):
     await User.objects.aupdate_or_create({
         "id": message.from_user.id, 
@@ -46,6 +46,11 @@ async def on_startup(dp):
 
     await bot.delete_webhook()
     await bot.set_webhook(config.WEBHOOK_URL)
+    await bot.set_my_commands([
+        types.BotCommand("start", "Запустить бота"),
+        types.BotCommand("menu", "Меню"),
+        types.BotCommand("sos", "Помощь"),
+    ])
 
 
 async def on_shutdown():

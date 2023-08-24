@@ -1,5 +1,6 @@
 import logging
 
+from django.utils import timezone
 from aiogram.dispatcher import FSMContext
 from aiogram.types import (CallbackQuery, Message, ReplyKeyboardMarkup,
                            ReplyKeyboardRemove)
@@ -199,6 +200,12 @@ async def confirm(message):
 
     await message.answer(f'Убедитесь, что все правильно оформлено и подтвердите заказ.',
                          reply_markup=confirm_markup())
+    
+
+@dp.message_handler(IsUser(), text=cancel_message, state=CheckoutState.confirm)
+async def process_checkout_cancel(message: Message, state: FSMContext):
+    await state.finish()
+    await process_cart(message, state)
 
 
 @dp.message_handler(IsUser(), text=confirm_message, state=CheckoutState.confirm)
@@ -219,7 +226,7 @@ async def process_confirm(message: Message, state: FSMContext):
                 dtype=data.get("dtype", None),
                 address_id=data.get("address", None),
                 ptype=data.get("ptype", None),
-                come_date=datetime.datetime.strptime(f"{data.get('come_date')} {data.get('come_time')}", "%Y-%m-%d %H:%M:%S") 
+                come_date=timezone.datetime.strptime(f"{data.get('come_date')} {data.get('come_time')}", "%Y-%m-%d %H:%M:%S") 
             )
 
             async for cart in Cart.objects.filter(user_id=message.from_user.id).select_related('product'):

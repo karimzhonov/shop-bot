@@ -9,7 +9,7 @@ from bot.models import FAQ
 from bot.states import SosState
 
 
-@dp.message_handler(commands='sos')
+@dp.message_handler(commands='sos', state="*")
 async def cmd_sos(message: Message):
     await SosState.question.set()
     await message.answer('В чем суть проблемы? Опишите как можно детальнее и администратор обязательно вам ответит.', reply_markup=ReplyKeyboardRemove())

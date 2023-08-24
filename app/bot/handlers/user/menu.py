@@ -12,12 +12,12 @@ settings = '⚙️ Настройка каталога'
 orders = '🚚 Заказы'
 questions = '❓ Вопросы'
 
-@dp.message_handler(IsAdmin(), commands='menu')
+@dp.message_handler(IsAdmin(), commands='menu', state="*")
 async def admin_menu(message: Message):
     markup = await get_admin_keyboard()
     await message.answer('Меню', reply_markup=markup)
 
-@dp.message_handler(IsUser(), commands='menu')
+@dp.message_handler(IsUser(), commands='menu', state="*")
 async def user_menu(message: Message):
     markup = await get_user_keyboard()
     await message.answer('Меню', reply_markup=markup)
