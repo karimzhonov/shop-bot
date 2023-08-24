@@ -12,3 +12,5 @@ data/database.db
 # vscode
 .vscode/
 .history/
+app/*/migrations/0*
+shop_db

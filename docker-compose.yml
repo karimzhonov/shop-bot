@@ -1,0 +1,38 @@
+version: '3.3'
+
+services:
+
+  shop_db:
+    container_name: shop_db
+    image: postgis/postgis:latest
+    restart: always
+    env_file:
+      - ./app/.env
+    volumes:
+      - ./shop_db:/var/lib/postgresql/data
+
+  shop-backend:
+    image: shop-backend
+    container_name: shop-backend
+    build: ./app/
+    restart: always
+    volumes:
+      - ./app/:/app/
+    env_file:
+      - ./app/.env
+    depends_on:
+      - shop_db
+    ports:
+      - 8000:8000
+    command: python manage.py runserver 0.0.0.0:8000
+  
+  shop-bot:
+    container_name: shop-bot
+    image: shop-backend
+    command: python manage.py runbot
+    volumes:
+      - ./app/:/app/
+    env_file:
+      - ./app/.env
+    depends_on:
+      - shop_db
