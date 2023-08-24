@@ -1,3 +1,1 @@
-from . import products_from_catalog
-from . import products_from_cart
-from . import categories
+from . import categories, products_from_cart, products_from_catalog

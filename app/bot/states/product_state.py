@@ -1,4 +1,5 @@
-from aiogram.dispatcher.filters.state import StatesGroup, State
+from aiogram.dispatcher.filters.state import State, StatesGroup
+
 
 class ProductState(StatesGroup):
     title = State()

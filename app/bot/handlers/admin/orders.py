@@ -1,8 +1,9 @@
 
 from aiogram.types import Message
-from bot.loader import dp
-from bot.handlers.user.menu import orders
 from bot.filters import IsAdmin
+from bot.handlers.user.menu import orders
+from bot.loader import dp
+
 
 @dp.message_handler(IsAdmin(), text=orders)
 async def process_orders(message: Message):

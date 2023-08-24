@@ -1,19 +1,21 @@
-import logging, json
-from django.utils.dateparse import parse_datetime
-from django.contrib.gis.geos import Point
+import logging
+
 from aiogram.dispatcher import FSMContext
-from aiogram.types import Message, CallbackQuery, ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
-from bot.keyboards.inline.products_from_cart import product_markup, product_cb
-from aiogram.utils.callback_data import CallbackData
-from bot.keyboards.default.markups import *
+from aiogram.types import (CallbackQuery, Message, ReplyKeyboardMarkup,
+                           ReplyKeyboardRemove)
 from aiogram.types.chat import ChatActions
-from bot.states import CheckoutState
-from bot.loader import dp, bot
+from aiogram.utils.callback_data import CallbackData
 from bot.filters import IsUser
-from order.models import Cart, Order, ProductInOrder
-from bot.utils import get_file_path
 from bot.handlers.user.menu import get_menu
 from bot.keyboards.datepicker import Datepicker
+from bot.keyboards.default.markups import *
+from bot.keyboards.inline.products_from_cart import product_cb, product_markup
+from bot.loader import bot, dp
+from bot.states import CheckoutState
+from bot.utils import get_file_path
+from django.contrib.gis.geos import Point
+from order.models import Cart, Order, ProductInOrder
+
 from .menu import cart
 
 

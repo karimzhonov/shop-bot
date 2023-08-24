@@ -1,11 +1,10 @@
 import datetime
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from order.models import ORDER_DELIVERY_TYPE, PAYMENT_TYPES
-from bot.keyboards.datepicker import Datepicker, DatepickerSettings
-from inline_timepicker.inline_timepicker import InlineTimepicker
 
 from address.models import Address
-
+from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
+from bot.keyboards.datepicker import Datepicker, DatepickerSettings
+from bot.keyboards.inline_timepicker.inline_timepicker import InlineTimepicker
+from order.models import ORDER_DELIVERY_TYPE, PAYMENT_TYPES
 
 back_message = '👈 Назад'
 confirm_message = '✅ Подтвердить заказ'

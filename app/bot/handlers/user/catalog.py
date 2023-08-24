@@ -1,15 +1,17 @@
 
-from aiogram.types import Message, CallbackQuery
-from bot.keyboards.inline.categories import categories_markup, category_cb
-from bot.keyboards.inline.products_from_catalog import product_markup, product_cb
-from aiogram.utils.callback_data import CallbackData
+from aiogram.types import CallbackQuery, Message
 from aiogram.types.chat import ChatActions
-from bot.loader import dp, bot
-from .menu import catalog
+from aiogram.utils.callback_data import CallbackData
 from bot.filters import IsUser
-from product.models import Category, Product
-from order.models import Cart
+from bot.keyboards.inline.categories import categories_markup, category_cb
+from bot.keyboards.inline.products_from_catalog import (product_cb,
+                                                        product_markup)
+from bot.loader import bot, dp
 from bot.utils import get_file_path
+from order.models import Cart
+from product.models import Category, Product
+
+from .menu import catalog
 
 
 @dp.message_handler(IsUser(), text=catalog)

@@ -1,15 +1,17 @@
 
-from aiogram.dispatcher import FSMContext
-from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton, ContentType, ReplyKeyboardMarkup, ReplyKeyboardRemove
-from aiogram.utils.callback_data import CallbackData
-from bot.keyboards.default.markups import *
-from bot.states import ProductState, CategoryState
-from aiogram.types.chat import ChatActions
-from bot.handlers.user.menu import settings
-from bot.loader import dp, bot
-from bot.filters import IsAdmin
 from hashlib import md5
 
+from aiogram.dispatcher import FSMContext
+from aiogram.types import (CallbackQuery, ContentType, InlineKeyboardButton,
+                           InlineKeyboardMarkup, Message, ReplyKeyboardMarkup,
+                           ReplyKeyboardRemove)
+from aiogram.types.chat import ChatActions
+from aiogram.utils.callback_data import CallbackData
+from bot.filters import IsAdmin
+from bot.handlers.user.menu import settings
+from bot.keyboards.default.markups import *
+from bot.loader import bot, dp
+from bot.states import CategoryState, ProductState
 
 category_cb = CallbackData('category', 'id', 'action')
 product_cb = CallbackData('product', 'id', 'action')

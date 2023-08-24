@@ -1,15 +1,16 @@
 
+import logging
 import os
+
+import bot.filters as filters
 import bot.handlers as handlers
-from django.core.management import BaseCommand
 from aiogram import executor, types
 from aiogram.types import ReplyKeyboardRemove
 from bot import config
-from bot.loader import dp, bot
-import bot.filters as filters
 from bot.handlers.user.menu import get_menu
+from bot.loader import bot, dp
 from bot.models import User
-import logging
+from django.core.management import BaseCommand
 
 filters.setup(dp)
 

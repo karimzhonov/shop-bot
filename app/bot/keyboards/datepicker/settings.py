@@ -1,5 +1,5 @@
-from datetime import datetime, date
-from typing import Union, List, Dict
+from datetime import date, datetime
+from typing import Dict, List, Union
 
 from .custom_action import DatepickerCustomAction
 from .helpers import merge_list

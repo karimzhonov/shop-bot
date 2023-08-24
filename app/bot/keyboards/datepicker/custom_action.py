@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 from datetime import date
 
-from aiogram.types import CallbackQuery
-from aiogram.types import InlineKeyboardButton
+from aiogram.types import CallbackQuery, InlineKeyboardButton
 from aiogram.utils.callback_data import CallbackData
 
 from .callback_data import datepicker_callback

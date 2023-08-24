@@ -1,4 +1,4 @@
-from datetime import datetime, date
+from datetime import date, datetime
 
 from aiogram.types import CallbackQuery
 from aiogram.utils.callback_data import CallbackData

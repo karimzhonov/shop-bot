@@ -1,7 +1,8 @@
 
-from aiogram.types import Message, CallbackQuery
 from aiogram.dispatcher.filters import BoundFilter
+from aiogram.types import CallbackQuery, Message
 from bot.models import User
+
 
 class IsAdmin(BoundFilter):
 

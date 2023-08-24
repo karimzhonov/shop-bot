@@ -1,12 +1,12 @@
 
 from aiogram.dispatcher import FSMContext
-from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
-from bot.keyboards.default.markups import all_right_message, cancel_message, submit_markup
-from aiogram.types import Message
-from bot.states import SosState
+from aiogram.types import Message, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from bot.filters import IsUser
+from bot.keyboards.default.markups import (all_right_message, cancel_message,
+                                           submit_markup)
 from bot.loader import dp
 from bot.models import FAQ
+from bot.states import SosState
 
 
 @dp.message_handler(commands='sos')

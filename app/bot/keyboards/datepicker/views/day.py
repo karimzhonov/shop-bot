@@ -1,13 +1,13 @@
 import calendar
-from datetime import datetime, date
+from datetime import date, datetime
 from typing import Union
 
-from aiogram.types import CallbackQuery
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import (CallbackQuery, InlineKeyboardButton,
+                           InlineKeyboardMarkup)
 
-from .base import BaseView
 from ..helpers import merge_list
 from ..settings import DatepickerSettings
+from .base import BaseView
 
 
 class DayView(BaseView):

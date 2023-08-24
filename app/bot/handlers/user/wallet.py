@@ -1,8 +1,9 @@
 
-from bot.loader import dp
 from aiogram.dispatcher import FSMContext
 from aiogram.types import Message
 from bot.filters import IsUser
+from bot.loader import dp
+
 from .menu import balance
 
 # test card ==> 1111 1111 1111 1026, 12/22, CVC 000

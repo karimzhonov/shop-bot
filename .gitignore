@@ -14,3 +14,5 @@ data/database.db
 .history/
 app/*/migrations/0*
 shop_db
+app/media
+app/static

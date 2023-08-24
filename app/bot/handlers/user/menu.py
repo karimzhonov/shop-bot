@@ -1,7 +1,7 @@
 
-from aiogram.types import Message, CallbackQuery, ReplyKeyboardMarkup
-from bot.loader import dp
+from aiogram.types import CallbackQuery, Message, ReplyKeyboardMarkup
 from bot.filters import IsAdmin, IsUser
+from bot.loader import dp
 
 catalog = '🛍️ Каталог'
 balance = '💰 Баланс'

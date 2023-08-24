@@ -1,7 +1,7 @@
 from django.contrib.gis import admin
 
-from .models import Order, Cart
 from .inlines import ProductInOrderInline
+from .models import Cart, Order
 
 
 @admin.register(Order)

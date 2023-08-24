@@ -1,7 +1,7 @@
 from uuid import uuid4
+
 from django.contrib.gis.db import models
 from payment.models import PAYMENT_TYPES
-
 
 ORDER_DELIVERY_TYPE = (
     ("delivery", "Доставка"),

@@ -1,9 +1,10 @@
 
 from aiogram.types import Message
-from bot.loader import dp
-from .menu import delivery_status
 from bot.filters import IsUser
-from order.models import Order, ORDER_STATUS
+from bot.loader import dp
+from order.models import ORDER_STATUS, Order
+
+from .menu import delivery_status
 
 
 @dp.message_handler(IsUser(), text=delivery_status)
